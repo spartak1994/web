@@ -3,8 +3,9 @@ sudo /etc/init.d/nginx restart
 #sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 #sudo gunicorn -c hello.py hello:app
 
-sudo /etc/init.d/mysql start
-
+# run MySQL & create DB
+sudo -s /etc/init.d/mysql start && mysql -uroot -e "create database django"
+	
 sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
 sudo /etc/init.d/gunicorn restart
 
