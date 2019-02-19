@@ -34,13 +34,5 @@ class Answer(models.Model):
         return reverse('question', kwargs={'question_id': self.question.id})
     
     def __unicode__(self):
-        return "Answer by {0} to question {1}: {2}...".\
-            format(self.author.username, self.question.id, self.text[:50])
+        return "Answer by {0} to question {1}: {2}...".format(self.author.username, self.question.id, self.text[:50])
 			
-    
-class QuestionManager(models.Manager):                                          
-        def new(self):
-			return self.order_by('-added_at')
-
-		def popular(self):
-			return self.order_by('-rating')	
