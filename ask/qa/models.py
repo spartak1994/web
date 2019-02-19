@@ -8,8 +8,6 @@ from datetime import datetime
 
 # Create your models here.
 class Question(models.Model):
-	class Question(models.Model):                                                   
-        objects = QuestionManager() 
     title = models.CharField(max_length=255)
     text = models.TextField()
     added_at = models.DateTimeField(blank=True, auto_now_add=True)
