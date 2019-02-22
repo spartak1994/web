@@ -15,6 +15,7 @@ class QuestionManager(models.Manager):
     return self.order_by('-rating')	
 	
 class Question(models.Model):
+    objects = QuestionManager()
     title = models.CharField(max_length=255)
     text = models.TextField()
     added_at = models.DateTimeField(blank=True, auto_now_add=True)
