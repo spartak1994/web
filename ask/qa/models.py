@@ -7,6 +7,13 @@ from datetime import datetime
 #from django.utils.timezone import now
 
 # Create your models here.
+
+class QuestionManager(models.Manager):
+  def new(self):
+    return self.order_by('-added_at')
+  def popular(self):
+    return self.order_by('-rating')	
+	
 class Question(models.Model):
     title = models.CharField(max_length=255)
     text = models.TextField()
