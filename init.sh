@@ -5,7 +5,7 @@ sudo /etc/init.d/nginx restart
 
 # run MySQL & create DB
 #sudo -s /etc/init.d/mysql start && mysql -uroot -e "create database django"
-
+sudo -s /etc/init.d/mysql start
 sudo mysql -uroot -e "create database django;"
 sudo mysql -uroot -e "grant all privileges on django.* to 'root'@'localhost' with grant option;"
 	
