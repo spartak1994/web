@@ -6,7 +6,7 @@ sudo /etc/init.d/nginx restart
 # run MySQL & create DB
 sudo -s /etc/init.d/mysql start && mysql -uroot -e "create database django"
 	
-sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
+#sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
 sudo /etc/init.d/gunicorn restart
 
 ~/web/ask/manage.py makemigrations
