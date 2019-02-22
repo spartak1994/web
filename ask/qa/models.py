@@ -22,7 +22,7 @@ class Question(models.Model):
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     likes = models.ManyToManyField(User, related_name='likes')
 	
-	objects = QuestionManager()
+    objects = QuestionManager()
 	
     def get_url(self):
         return reverse('question', kwargs={'question_id': self.pk})
