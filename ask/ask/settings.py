@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/')
+TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/',)
 
 # Application definition
 
