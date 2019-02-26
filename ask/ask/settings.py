@@ -28,6 +28,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
+from os.path import join
+TEMPLATE_DIRS = (
+    join(BASE_DIR,  'ask/qa/templates/'),
+)
 
 TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/',)
 
