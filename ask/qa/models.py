@@ -29,9 +29,6 @@ class Question(models.Model):
     def get_url(self):
         return reverse('question_details', kwargs={'slug': self.id})
 
-    class Meta:
-        db_table = 'questions'
-        ordering = ['-added_at']
 
 class Answer(models.Model):
     # id = models.SlugField(unique=True, primary_key=True)
@@ -43,6 +40,4 @@ class Answer(models.Model):
     def __unicode__(self):
         return "Answer by {0} to question {1}: {2}...".\
             format(self.author.username, self.question.id, self.text[:50])
-    
-    class Meta:
-        db_table = 'answers'
+  
