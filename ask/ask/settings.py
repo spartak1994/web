@@ -26,7 +26,7 @@ SECRET_KEY = 'e3c4#f4ue5+p)*)i0ye@3y@fd+#4(xvhk*8$pi_4i0w8a8$9$p'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/')
