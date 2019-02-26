@@ -1,5 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse 
+from django.http import HttpResponse
+from django.views.decorators.http import require_GET
+from .models import Question, Answer
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger 
+from django.http import Http404, HttpResponseRedirect
 
 # Create your views here.
 def test(request, *args, **kwargs):

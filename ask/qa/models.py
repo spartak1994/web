@@ -41,7 +41,8 @@ class Answer(models.Model):
     author = models.ForeignKey(User,null=True, on_delete=models.SET_NULL)
 
     def __unicode__(self):
-        return self.text
-
+        return "Answer by {0} to question {1}: {2}...".\
+            format(self.author.username, self.question.id, self.text[:50])
+    
     class Meta:
         db_table = 'answers'
