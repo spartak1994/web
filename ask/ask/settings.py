@@ -29,9 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-TEMPLATE_DIRS = (
-    os.path.join(BASE_DIR, 'templates/'),
-)
+TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/')
 
 # Application definition
 
@@ -62,7 +60,7 @@ ROOT_URLCONF = 'ask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/box/web/ask/qa/templates/',],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
