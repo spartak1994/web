@@ -33,8 +33,6 @@ TEMPLATE_DIRS = (
     join(BASE_DIR,  'ask/qa/templates/'),
 )
 
-TEMPLATE_DIRS = ('/home/box/web/ask/qa/templates/',)
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -64,7 +62,7 @@ ROOT_URLCONF = 'ask.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/home/box/web/ask/qa/templates/',],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
