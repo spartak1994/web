@@ -19,7 +19,7 @@ def index(request, *args, **kwargs):
         'paginator': paginator,
         'limit': limit,
     }
-    return render(request, 'qa/index-lite.html', context)
+    return render(request, 'qa/zaebalo.html', context)
 	
 @require_GET
 def popular(request, *args, **kwargs):
