@@ -19,7 +19,7 @@ def index(request, *args, **kwargs):
         'paginator': paginator,
         'limit': limit,
     }
-    return render(request, 'qa/index-lite.html', context)
+    return render(request, 'index-lite.html', context)
 	
 @require_GET
 def popular(request, *args, **kwargs):
@@ -31,7 +31,7 @@ def popular(request, *args, **kwargs):
         'paginator': paginator,
         'limit': limit,
     }
-    return render(request, 'qa/popular-lite.html', context)
+    return render(request, 'popular-lite.html', context)
 
 def question(request, question_id):
     """POST and GET methods needed"""
@@ -40,4 +40,4 @@ def question(request, question_id):
     #a = Answer.objects.filter(question=question_id).order_by('-added_at')
     form = AnswerForm(initial = {'question': question_id})
     context = {'question': q, 'answers': a, 'form': form, }
-    return render(request, 'qa/question-lite.html', context)  	
+    return render(request, 'question-lite.html', context)  	
