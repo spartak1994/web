@@ -28,11 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-from os.path import join
-TEMPLATE_DIRS = (
-    join(BASE_DIR,  'ask/qa/templates/'),
-)
-
 # Application definition
 
 INSTALLED_APPS = [
