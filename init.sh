@@ -9,8 +9,8 @@ sudo -s /etc/init.d/mysql start
 sudo mysql -uroot -e "create database django;"
 sudo mysql -uroot -e "grant all privileges on django.* to 'root'@'localhost' with grant option;"
 	
-#sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
-#sudo /etc/init.d/gunicorn restart
+sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
+sudo /etc/init.d/gunicorn restart
 
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
