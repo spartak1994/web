@@ -1,5 +1,7 @@
+#run nginx
 sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
+
 #sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
 #sudo gunicorn -c hello.py hello:app
 
@@ -8,8 +10,9 @@ sudo /etc/init.d/nginx restart
 sudo -s /etc/init.d/mysql start
 sudo mysql -uroot -e "create database django;"
 sudo mysql -uroot -e "grant all privileges on django.* to 'root'@'localhost' with grant option;"
-	
-sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
+
+sudo ln -sf /home/box/web/etc/gunicorn_ask.conf /etc/gunicorn.d/ask	
+#sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
 sudo /etc/init.d/gunicorn restart
 
 ~/web/ask/manage.py makemigrations
