@@ -14,4 +14,4 @@ sudo /etc/init.d/gunicorn restart
 
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
-~/web/ask/manage.py runserver 0.0.0.0:8000
+#~/web/ask/manage.py runserver 0.0.0.0:8000
