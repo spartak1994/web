@@ -13,10 +13,18 @@ sudo mysql -uroot -e "grant all privileges on django.* to 'root'@'localhost' wit
 
 
 sudo ln -sf /home/box/web/etc/django-gunicorn.conf /etc/gunicorn.d/ask	
-sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
+#sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
 #~/web/ask/ask.wsgi:application
 sudo /etc/init.d/gunicorn restart
 
+#~/web/ask/manage.py runserver 0.0.0.0:8000
+
+virtualenv venv
+source venv/bin/activate
+echo "Update setup-tools"
+sudo pip install --upgrade pip setuptools
+sudo pip install -r etc/list.txt
+export PYTHONPATH=$(pwd):$PYTHONPATH
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
-#~/web/ask/manage.py runserver 0.0.0.0:8000
+sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
