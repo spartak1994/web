@@ -21,9 +21,9 @@ sudo /etc/init.d/gunicorn restart
 
 virtualenv venv
 source venv/bin/activate
-echo "Update setup-tools"
-sudo pip install --upgrade pip setuptools
-sudo pip install -r etc/list.txt
+#echo "Update setup-tools"
+#sudo pip install --upgrade pip setuptools
+#sudo pip install -r etc/list.txt
 export PYTHONPATH=$(pwd):$PYTHONPATH
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
