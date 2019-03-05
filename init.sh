@@ -19,12 +19,12 @@ sudo /etc/init.d/gunicorn restart
 
 #~/web/ask/manage.py runserver 0.0.0.0:8000
 
-virtualenv venv
-source venv/bin/activate
+#virtualenv venv
+#source venv/bin/activate
 #echo "Update setup-tools"
 #sudo pip install --upgrade pip setuptools
 #sudo pip install -r etc/list.txt
-export PYTHONPATH=$(pwd):$PYTHONPATH
+#export PYTHONPATH=$(pwd):$PYTHONPATH
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
 sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
