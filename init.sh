@@ -24,7 +24,7 @@ sudo /etc/init.d/gunicorn restart
 #echo "Update setup-tools"
 #sudo pip install --upgrade pip setuptools
 #sudo pip install -r etc/list.txt
-export PYTHONPATH=$(pwd):$PYTHONPATH
+#export PYTHONPATH=$(pwd):$PYTHONPATH
 ~/web/ask/manage.py makemigrations
 ~/web/ask/manage.py migrate
 sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask.wsgi:application
