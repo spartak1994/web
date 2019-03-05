@@ -12,7 +12,7 @@ sudo mysql -uroot -e "create database django;"
 sudo mysql -uroot -e "grant all privileges on django.* to 'root'@'localhost' with grant option;"
 
 sudo ln -sf /home/box/web/etc/django-gunicorn.conf /etc/gunicorn.d/ask	
-sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf 
+sudo gunicorn -c /home/box/web/etc/django-gunicorn.conf ask/ask/wsgi:application
 #~/web/ask/ask.wsgi:application
 sudo /etc/init.d/gunicorn restart
 
