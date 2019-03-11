@@ -13,7 +13,7 @@
                 {% else %}
                 <li>
                 {% endif %}
-                    <a href="{{ paginator.baseurl }}{{ p }}">{{ p }}</a>
+                    <a href="?page={{ p }}">{{ p }}</a>
                 </li>
             {% endfor %}
         </ul>
