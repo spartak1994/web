@@ -16,7 +16,7 @@ def index(request, *args, **kwargs):
 	questions = Question.objects.order_by('id')
     paginator, page = paginate(request, questions)
 
-    return render(request, 'qa/home.html', {
+    return render(request, 'index-lite.html', {
         'questions': page.object_list,
         'paginator': paginator,
         'page': page,
