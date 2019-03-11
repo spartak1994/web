@@ -15,12 +15,12 @@ def index(request, *args, **kwargs):
     #return HttpResponse('Index')
     questions = Question.objects.order_by('id')
     paginator, page = paginate(request, questions)
-
-    return render(request, 'index-lite.html', {
-        'questions': page.object_list,
-        'paginator': paginator,
-        'page': page,
-    })
+    return HttpResponse('Index')
+    #return render(request, 'index-lite.html', {
+    #    'questions': page.object_list,
+    #    'paginator': paginator,
+    #    'page': page,
+    #})
 	
 @require_GET
 def popular(request, *args, **kwargs):
