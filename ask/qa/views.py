@@ -7,19 +7,20 @@ from django.http import Http404, HttpResponseRedirect
 
 # Create your views here.
 def test(request, *args, **kwargs):
-    return HttpResponse('OKK')
+    return HttpResponse('OK')
 
 	
 @require_GET
 def index(request, *args, **kwargs):
-    question_list = Question.objects.order_by('-id')
-    paginator, page, limit = paginate(request, question_list)
-    context = {
-        'questions': page,
-        'paginator': paginator,
-        'limit': limit,
-    }
-    return render(request, 'index-lite.html', context)
+    return HttpResponse('Index')
+	#question_list = Question.objects.order_by('-id')
+    #paginator, page, limit = paginate(request, question_list)
+    #context = {
+    #    'questions': page,
+    #    'paginator': paginator,
+    #    'limit': limit,
+    #}
+    #return render(request, 'index-lite.html', context)
 	
 @require_GET
 def popular(request, *args, **kwargs):
