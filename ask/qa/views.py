@@ -16,7 +16,7 @@ def index(request, *args, **kwargs):
 	try:
 		questions = Question.objects.order_by('id')
     except Question.DoesNotExist:
-            raise Http404
+        raise Http404
 	paginator, page = paginate(request, questions)
     return render(request, 'index-lite.html', {
         'questions': page.object_list,
