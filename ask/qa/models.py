@@ -40,5 +40,5 @@ class Answer(models.Model):
     def __unicode__(self):
         return "Answer by {0} to question {1}: {2}...".format(self.author.username, self.question.id, self.text[:50])
 	def get_url(self):
-        return "/question/{}/".format(self.id)
+        return reverse('question', kwargs={'question_id': self.question.id})
   
