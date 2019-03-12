@@ -13,8 +13,11 @@ def test(request, *args, **kwargs):
 @require_GET
 def index(request, *args, **kwargs):
     #return HttpResponse('Index')
-    questions = Question.objects.order_by('id')
-    paginator, page = paginate(request, questions)
+	try:
+		questions = Question.objects.order_by('id')
+    except Question.DoesNotExist:
+	    raise Http404
+	paginator, page = paginate(request, questions)
     return render(request, 'index-lite.html', {
         'questions': page.object_list,
         'paginator': paginator,
