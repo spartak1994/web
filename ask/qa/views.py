@@ -62,6 +62,7 @@ def paginate(request, qs):
     try:
         page = paginator.page(page)
     except EmptyPage:
-        page = paginator.page(paginator.num_pages)
+        raise Http404	
+        #page = paginator.page(paginator.num_pages)
 
     return paginator, page
