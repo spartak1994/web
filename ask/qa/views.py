@@ -13,7 +13,7 @@ def test(request, *args, **kwargs):
 def index(request, *args, **kwargs):
     #return HttpResponse('Index')
     try:
-        questions = Question.objects.order_by('id')
+        questions = Question.objects.all().order_by('id')
     except Question.DoesNotExist:
         raise Http404
     paginator, page = paginate(request, questions)
