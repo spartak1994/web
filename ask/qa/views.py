@@ -17,6 +17,7 @@ def index(request, *args, **kwargs):
     except Question.DoesNotExist:
         raise Http404
     paginator, page = paginate(request, questions)
+    paginator.baseurl = '/?page='
     return render(request, 'index-lite.html', {
         'questions': page.object_list,
         'paginator': paginator,
