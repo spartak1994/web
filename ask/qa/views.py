@@ -9,21 +9,20 @@ from django.http import Http404, HttpResponseRedirect
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
 
-	
 @require_GET
 def index(request, *args, **kwargs):
     #return HttpResponse('Index')
-	try:
-		questions = Question.objects.order_by('id')
+    try:
+        questions = Question.objects.order_by('id')
     except Question.DoesNotExist:
         raise Http404
-	paginator, page = paginate(request, questions)
+    paginator, page = paginate(request, questions)
     return render(request, 'index-lite.html', {
         'questions': page.object_list,
         'paginator': paginator,
         'page': page,
     })
-	
+
 @require_GET
 def popular(request, *args, **kwargs):
     # list of questions in desc order by rating
@@ -43,8 +42,8 @@ def question(request, question_id):
     #a = Answer.objects.filter(question=question_id).order_by('-added_at')
     form = AnswerForm(initial = {'question': question_id})
     context = {'question': q, 'answers': a, 'form': form, }
-    return render(request, 'question-lite.html', context)  	
-	
+    return render(request, 'question-lite.html', context)
+
 def paginate(request, qs):
     try:
         limit = int(request.GET.get('limit', 10))
