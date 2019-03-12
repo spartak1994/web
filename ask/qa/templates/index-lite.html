@@ -8,7 +8,7 @@
     <nav>
         <ul class="pagination">
             {% for p in paginator.page_range %}
-                {% if p.number == page.number %}
+                {% if p == page.number %}
                 <li class="active">
                 {% else %}
                 <li>
