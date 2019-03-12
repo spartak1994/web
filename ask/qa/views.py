@@ -27,7 +27,8 @@ def index(request, *args, **kwargs):
 def popular(request, *args, **kwargs):
     # list of questions in desc order by rating
     question_list = Question.objects.order_by('-rating')
-    paginator, page, limit = paginate(request, question_list)    
+    paginator, page, limit = paginate(request, question_list)
+    paginator.baseurl = '/?page='    
     context = {
         'questions': page,
         'paginator': paginator,
