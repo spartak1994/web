@@ -12,7 +12,7 @@ class QuestionManager(models.Manager):
         return self.order_by('-rating')
 
 class Question(models.Model):
-    # id = models.SlugField(unique=True, primary_key=True)
+    id = models.SlugField(unique=True, primary_key=True)
     title = models.CharField(max_length=255)
     text = models.TextField()
     added_at = models.DateTimeField(blank=True, auto_now_add=True)
@@ -24,14 +24,14 @@ class Question(models.Model):
     def __unicode__(self):
         return self.title
 
-    # def get_url(self):
-    #     return "/question/{}/".format(self.id)
     def get_url(self):
-        return reverse('question_details', kwargs={'slug': self.id})
+        return "/question/{}/".format(self.id)
+    #def get_url(self):
+    #    return reverse('question_details', kwargs={'slug': self.id})
 
 
 class Answer(models.Model):
-    # id = models.SlugField(unique=True, primary_key=True)
+    id = models.SlugField(unique=True, primary_key=True)
     text = models.TextField()
     added_at = models.DateTimeField(blank=True, auto_now_add=True)
     question = models.ForeignKey(Question,null=False, on_delete=models.CASCADE)
@@ -40,4 +40,6 @@ class Answer(models.Model):
     def __unicode__(self):
         return "Answer by {0} to question {1}: {2}...".\
             format(self.author.username, self.question.id, self.text[:50])
+	def get_url(self):
+        return "/question/{}/".format(self.id)
   
