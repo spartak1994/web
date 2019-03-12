@@ -23,9 +23,9 @@ class Question(models.Model):
 
     def __unicode__(self):
         return self.title
-
+	
     def get_url(self):
-        return reverse('question', kwargs={'question_id': self.pk})
+			return reverse('question', kwargs={'question_id': self.pk})
     #def get_url(self):
     #    return reverse('question_details', kwargs={'slug': self.id})
 
@@ -39,6 +39,7 @@ class Answer(models.Model):
 
     def __unicode__(self):
         return "Answer by {0} to question {1}: {2}...".format(self.author.username, self.question.id, self.text[:50])
+		
 	def get_url(self):
         return reverse('question', kwargs={'question_id': self.question.id})
   
